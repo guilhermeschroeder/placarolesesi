@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Placar Interclasse SESI/SENAI - Copa do Mundo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="scoreboard-container">
+        <header class="scoreboard-header">
+            <img src="https://logodownload.org/wp-content/uploads/2019/08/sesi-logo.png" alt="SESI Logo" class="logo-sesi">
+            <h1>INTERCLASSE SESI/SENAI</h1>
+            <p class="subtitle">Edição Países da Copa do Mundo</p>
+        </header>
+
+        <div class="timer-section">
+            <div class="period" id="period-display">1º TEMPO</div>
+            <div class="timer" id="timer-display">00:00</div>
+            <div class="timer-controls">
+                <button onclick="startTimer()" id="btn-start">Iniciar</button>
+                <button onclick="pauseTimer()" id="btn-pause">Pausar</button>
+                <button onclick="resetTimer()" id="btn-reset">Reiniciar</button>
+            </div>
+        </div>
+
+        <div class="match-panel">
+            
+            <div class="team-card team-a">
+                <select id="select-team-a" onchange="updateTeamData('a')">
+                    <option value="br" data-color="#009c3b">Brasil 🇧🇷</option>
+                    <option value="ar" data-color="#74acdf">Argentina 🇦🇷</option>
+                    <option value="fr" data-color="#002395">França 🇫🇷</option>
+                    <option value="de" data-color="#ffe300">Alemanha 🇩🇪</option>
+                    <option value="jp" data-color="#bc002d">Japão 🇯🇵</option>
+                </select>
+                <div class="score-display" id="score-a">0</div>
+                <div class="score-controls">
+                    <button class="btn-score plus" onclick="changeScore('a', 1)">+1</button>
+                    <button class="btn-score minus" onclick="changeScore('a', -1)">-1</button>
+                </div>
+            </div>
+
+            <div class="vs">VS</div>
+
+            <div class="team-card team-b">
+                <select id="select-team-b" onchange="updateTeamData('b')">
+                    <option value="ar" data-color="#74acdf" selected>Argentina 🇦🇷</option>
+                    <option value="br" data-color="#009c3b">Brasil 🇧🇷</option>
+                    <option value="fr" data-color="#002395">França 🇫🇷</option>
+                    <option value="de" data-color="#ffe300">Alemanha 🇩🇪</option>
+                    <option value="jp" data-color="#bc002d">Japão 🇯🇵</option>
+                </select>
+                <div class="score-display" id="score-b">0</div>
+                <div class="score-controls">
+                    <button class="btn-score plus" onclick="changeScore('b', 1)">+1</button>
+                    <button class="btn-score minus" onclick="changeScore('b', -1)">-1</button>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="bottom-controls">
+            <button onclick="changePeriod()">Próximo Tempo / Penaltis</button>
+            <button onclick="resetMatch()" class="btn-danger">Zerar Partida</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
